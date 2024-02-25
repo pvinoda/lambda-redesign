@@ -8,7 +8,7 @@ A clone of AWS Lambda that executes Python Script and offers FaaS. The service i
 **Design**
 Designing an entire system with all its complexities is a detailed process that involves considering various aspects like architecture, components, communication protocols, data flow, and more. Below is a high-level design of the system you described, considering its complexities:
 
-### System Architecture:
+### System Architecture: [kafka to be added]
 
 #### Components:
 1. **User Interface (UI):**
@@ -131,9 +131,30 @@ Designing an entire system with all its complexities is a detailed process that 
 - Regularly review and update security measures.
 - Provide a mechanism for users to report issues.
 
-### Legal and Compliance:
+**Data Flow with Kafka:**
+User Submits Code:
 
-- Define and communicate clear terms of service.
-- Ensure compliance with relevant data protection and privacy regulations.
+Users submit Python code through the UI or CLI.
+Task Scheduling:
 
-This is a broad overview, and the actual implementation details would depend on your specific requirements, constraints, and the technologies you choose. It's recommended to dive deeper into each component, define API specifications, and design detailed data models before starting the implementation.
+Task Scheduler publishes scheduling events to a Kafka topic.
+Code Execution:
+
+Execution Manager subscribes to the code execution topic, retrieves tasks, and executes code.
+Publishes execution results to a Kafka topic.
+Logging and Monitoring:
+
+Optionally, publish logs and metrics events to Kafka for centralized monitoring.
+Result Storage:
+
+Listens for execution result events on Kafka topics for storage.
+Notification:
+
+Users receive notifications based on Kafka events.
+Consensus and Replication:
+
+Utilize Kafka for communication and coordination among primary and replica nodes.
+Event Trigger (Optional):
+
+Event Trigger System may initiate code execution based on external events and publish to Kafka.
+
