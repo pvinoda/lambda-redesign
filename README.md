@@ -5,29 +5,7 @@ A clone of AWS Lambda that executes Python Script and offers FaaS. The service i
 
 <img width="740" alt="image" src="https://github.com/pvinoda/lambda-redesign/assets/60209393/c4b04692-6bb3-4311-96ef-6cdfb58f62d3">
 
-[User Interface (UI)]    [Command-Line Interface (CLI)]
-            |                           |
-            +---------------------------+
-            |                          
-         [API Gateway]---------------------->[User Management]
-            |                                 |       ^
-            |                                 v       |
-         [Task Scheduler]               [Dependency Management]
-            |                                 ^
-            |                                 |
-         [Execution Manager]           [Event Trigger System]
-            |                                 |
-   +--------+--------+                        |
-   |                 |                        |
-[Logging]        [Result Storage]             |
-   |                 |                        |
-[Monitoring] <------+--------[Replication Manager]---->[Consensus Module]
-                                     |                        |
-                                     +------------------------+
-                                     |
-                             [Notification Service]
-                                     |
-                             [Cost Management System]
+<img width="695" alt="image" src="https://github.com/pvinoda/lambda-redesign/assets/60209393/91d5a401-7379-480c-ad08-4f47736df98a">
 
 **Design**
 Designing an entire system with all its complexities is a detailed process that involves considering various aspects like architecture, components, communication protocols, data flow, and more. Below is a high-level design of the system you described, considering its complexities:
